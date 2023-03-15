@@ -1,2 +1,2 @@
 #!/bin/bash
-cat code.list | sort | uniq
+cat code.list | sort | uniq -u
