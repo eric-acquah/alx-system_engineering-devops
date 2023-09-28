@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script prints best school 10 times
+
+i=0;
+export i;
+
+for i in {1..10}; do
+    echo "Best School";
+done
