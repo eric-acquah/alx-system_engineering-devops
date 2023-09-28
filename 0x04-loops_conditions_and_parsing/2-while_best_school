@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Printing Best School ten times using while loop
+
+start=0;
+end=10;
+
+while [ "$start" -lt "$end" ]; do
+    echo "Best School"
+    ((start += 1))
+done
