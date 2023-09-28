@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# text extraction with the cut command
+
+ls > filenames
+names=filenames
+
+for file in $names; do
+    cut -d "-" -f 2- "$file"
+done
