@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Using conditional statements
+
+start=0
+end=10
+
+while [ "$start" -lt "$end" ]; do
+
+    if [ "$start" -eq 9 ]; then
+      	echo "Hi"
+    fi
+
+    echo "Best School"
+    ((start += 1))
+done
