@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# From the etc/passwd file extract 'username', 'id' and 'home directory'
+
+
+while IFS= read -r txt ; do
+
+    echo "$txt" | cut -d ":" -f 1,4,6
+
+done < /etc/passwd
