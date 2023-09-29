@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# display useful info about the file 'school'
+
+sch="school"
+
+if [ -a "$sch" ]; then
+
+   echo "$sch file exists"
+
+   if [ -s "$sch" ]; then
+      echo "$sch file is not empty"
+   else
+	echo "$sch file is empty"
+   fi
+
+   if [ -f "$sch" ]; then
+      echo "$sch is a regular file"
+   fi
+
+else
+    echo "$sch file does not exist"
+fi
