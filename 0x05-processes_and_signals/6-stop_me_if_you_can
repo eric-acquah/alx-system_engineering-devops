@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Send a kill signal to all processes that can be killed
 
-pkill 4-to_infinity_and_beyond
+pkill -KILL 4-to_infinity_and_beyond
