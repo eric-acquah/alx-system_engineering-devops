@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Send a kill signal to all processes that can be killed
+
+kill -9 -1
