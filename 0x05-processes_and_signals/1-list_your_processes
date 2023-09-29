@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Display all PIDs with full description
+
+ps aux -H
