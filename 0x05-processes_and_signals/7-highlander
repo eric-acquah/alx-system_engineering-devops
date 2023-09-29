@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#trap a signal
+
+report="echo I am invincible!!!"
+
+while true; do
+      echo "To infinity and beyond!"
+      sleep 2
+
+      trap '$report' TERM
+done
