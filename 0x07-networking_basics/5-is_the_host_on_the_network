@@ -7,7 +7,7 @@ export i
 
 if [ "$1" = "" ]; then
 
-    echo "Usage: 5-is_the_host_on_the_network {IP ADDRESS}"
+    echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
 else
 
 	ping -c 5 "$1"
