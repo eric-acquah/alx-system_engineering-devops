@@ -1,0 +1,29 @@
+https://imgur.com/AH8cQtS
+
+A server is a piece of computer hardware or software that is set up to respond
+to the request of other devices known as clients.
+
+The domain name makes it easy to access a website without knowing
+the IP address of the server it is hosted on.
+
+Cname record
+
+The websever primarily receives HTTP request and serve the necessary web content
+based on the given request to the client which sent the request.
+
+The application server handels the business logic necessary to proccess a given
+data.
+
+The database is used to store and manage the data of the website.
+
+HTTP protocol
+
+The Single Point Of Failure in this strurcture is the websever. If the websever
+is down, request from client will have no response.
+
+The downtime in the case of an update to the system could extend to days
+if not weeks, since there is no high availabilty system put in place to ensure
+a short lived downtime.
+
+This system cannot scale if there is a higher incoming traffic because there is
+only one websever handeling the workload.
