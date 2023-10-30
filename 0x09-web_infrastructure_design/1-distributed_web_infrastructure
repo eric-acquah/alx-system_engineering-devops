@@ -1,0 +1,32 @@
+https://imgur.com/VACipp8
+
+The load-balancer uses the predictive load balancing algorithm which is
+a combination of the fastest and observed load-balancing algorithms. It
+works by determining in real-time which server in the cluster has the best
+performance and response speed to direct the incoming traffic to.
+
+The load balancer in my structure is using the Active-Passive setup.
+The Active-Passive setup involves handeling all incoming load with one
+server and reserving the other server as a failover in case of an overload.
+Active-Active on the other hand requires two or more active servers to evenly
+distribute incoming traffic.
+
+Primary-replica cluster database architecture involves the setup of a primary
+database, handeling all the read-write operations and one or more replica databases
+serving mainly read operations, these replica databases also often serve as failover
+measures.
+
+The main differance is the primary node handles all read-write operations whiles
+the replica node serves read operations only.
+
+Single-Point-Of-Failure in this structure is the load balancer. When the load-
+balancer is down, incoming traffic can not be properly distributed, which may
+cause one or both of the servers to fail if QPS increases.
+
+This setup is not secure because all kinds of traffic are given unrestricted access
+to the servers which poses as a major security treat.
+
+The lack of a monitoring system in this setup is also another draw back as it will
+be difficult to measure QPS among other factors, which may cause upredictable
+occurances in the system without anyone knowing, this may eventually bring about
+total system failure.
