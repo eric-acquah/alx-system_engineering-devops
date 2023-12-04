@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#install and partitaily configure nginx on a web server
+
+
+#installation
+apt-get update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+
+#write a simple html test file
+echo "Hello World!" | tee /var/www/html/index.html
+
+#test nginx
+nginx -t
+
+#apply configurations
+service nginx start
