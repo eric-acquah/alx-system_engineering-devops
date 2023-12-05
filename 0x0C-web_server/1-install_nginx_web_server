@@ -3,15 +3,15 @@
 
 
 #installation
-apt-get update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
 
 #write a simple html test file
-echo "Hello World!" | tee /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 
 #test nginx
-nginx -t
+sudo nginx -t
 
 #apply configurations
-service nginx start
+sudo service nginx start
