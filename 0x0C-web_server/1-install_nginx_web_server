@@ -8,10 +8,15 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 
 #write a simple html test file
-echo "Hello World!" > /var/www/html/index.html
+echo "server {
+    listen 80;
+    server_name localhost;
 
-#test nginx
-sudo nginx -t
+    location / {
+        echo 'Hello World!';
+    }
+}" | sudo tee /etc/nginx/sites-available/default > /dev/null
+
 
 #apply configurations
 sudo service nginx start
