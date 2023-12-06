@@ -1,8 +1,20 @@
 #!/usr/bin/env bash
 #Configure a nginx on ubuntu machine to redirect page permanently
 
+
+#installation
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+
+#write a simple html test file
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
 # define the multi-line configuration
 config="# Redirect a page permanently:\n\tlocation \/redirect_me {\n\t\treturn 301 https:\/\/google.com;\n\t}\n"
 
 # insert in-place, before the target line
 sed -i "/# deny access to .htaccess files, if Apache's document root/i$config" /etc/nginx/sites-available/default
+
+#start/restart nginx
+service nginx start
