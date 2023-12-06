@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Configure a nginx on ubuntu machine to redirect page permanently
+
+# define the multi-line configuration
+config="# Redirect a page permanently:\n\tlocation \/redirect_me {\n\t\treturn 301 https:\/\/google.com;\n\t}\n"
+
+# insert in-place, before the target line
+sed -i "/# deny access to .htaccess files, if Apache's document root/i$config" /etc/nginx/sites-available/default
