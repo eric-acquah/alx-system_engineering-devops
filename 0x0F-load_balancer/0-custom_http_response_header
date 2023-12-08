@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Configure a new ubuntu machine to mirror the configuration of another machine
+#+Running a web server
+
+#installation
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+
+#write a simple html test file
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# define the multi-line configuration
+config="# Redirect a page permanently:\n\tlocation \/redirect_me {\n\t\treturn 301 https:\/\/google.com;\n\t}\n"
+
+# insert in-place, before the target line
+sudo sed -i "/# deny access to .htaccess files, if Apache's document root/i$config" /etc/nginx/sites-available/default
+
+# Creating a 404 Custom error page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+new_string="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+
+sudo sed -i "s/listen 80 default_server;/$new_string/" /etc/nginx/sites-enabled/default
+
+#set custom http response header
+add_h="#Add a custom header:\n\tadd_header X-Served-By \$hostname;\n"
+
+sudo sed -i "/# server_names_hash_bucket_size 64;/i$add_h" /etc/nginx/nginx.conf
+
+#start/restart nginx
+sudo service nginx start
