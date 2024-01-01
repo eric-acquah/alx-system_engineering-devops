@@ -6,10 +6,10 @@ function print_info(){
     # if the 2nd argument is not false, then get only the subdomain passed
     # else print all the subdomains known to the domain name passed
     if [ $2 != "false" ]; then
-	dig $2.$1 | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{ print "The subdomain is a " $4 " record and points to " $5 }'
+	dig $2.$1 | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v sb="$2" '{ print "The subdomain " sb " is a " $4 " record and points to " $5 }'
     else
 	for subdom in www lb-01 web-01 web-02; do
-	    dig $subdom.$1 | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{ print "The subdomain is a " $4 " record and points to " $5 }'
+	    dig $subdom.$1 | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v sb="$subdom" '{ print "The subdomain " sb " is a " $4 " record and points to " $5 }'
 	done
     fi
 }
