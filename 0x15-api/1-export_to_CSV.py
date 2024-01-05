@@ -36,14 +36,14 @@ filename = f"{uid}.csv"
 # csv fieldnames = ["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"]
 
 with open(filename, 'w', newline="") as csvfile:
-    csvWriter = csv.writer(csvfile)
+    csvWriter = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
 
     # Extract and write data into the csv file
     for task in todos:
         if task.get('userId') == uid:
             taskData = []
-            taskData.append(str(uid))
-            taskData.append(str(userName))
-            taskData.append(str(task.get('completed')))
-            taskData.append(str(task.get('title')))
+            taskData.append(uid)
+            taskData.append(userName)
+            taskData.append(task.get('completed'))
+            taskData.append(task.get('title'))
             csvWriter.writerow(taskData)
