@@ -7,6 +7,7 @@ Function retrives number of subscribers of a given subreddit
 """
 
 import praw
+import requests
 
 
 def number_of_subscribers(subreddit):
