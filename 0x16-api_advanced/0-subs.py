@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-Fetch data from the subreddit API
+Fetch and manipulate data from the reddit API.
+Function retrives number of subscribers of a given subreddit
 
 """
 
